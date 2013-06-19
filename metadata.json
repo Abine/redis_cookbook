@@ -1,0 +1,100 @@
+{
+  "name": "redis",
+  "description": "Installs/Configures Redis",
+  "long_description": "Description\n===========\nThis cookbook deploys a redis server. It doesn't do anything special other than customize a few of the redis configuration options.\n\nRequirements\n============\n\n\nAttributes\n==========\n\n\nUsage\n=====\nYou need to set the maxmemory attribute correctly depending on the instance type.  For now it's set to use 90% of memory provided by an m2.xlarge\n",
+  "maintainer": "Abine, Inc.",
+  "maintainer_email": "cloud@abine.com",
+  "license": "All rights reserved",
+  "platforms": {
+  },
+  "dependencies": {
+    "rightscale": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+    "redis/loglevel": {
+      "display_name": "Redis LogLevel",
+      "description": "How much to log",
+      "default": "notice",
+      "required": "optional",
+      "recipes": [
+        "redis::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "redis/port": {
+      "display_name": "Redis Port",
+      "description": "What port redis listens on for connections",
+      "default": "6379",
+      "required": "optional",
+      "recipes": [
+        "redis::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "redis/bind": {
+      "display_name": "Redis Bind",
+      "description": "What address to bind to",
+      "default": "0.0.0.0",
+      "required": "optional",
+      "recipes": [
+        "redis::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "redis/maxmemory": {
+      "display_name": "Redis Max Memory",
+      "description": "Maximum amount of memory redis can use",
+      "default": "16428249907",
+      "required": "recommended",
+      "recipes": [
+        "redis::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "redis/auth_key": {
+      "display_name": "Redis AUTH Key",
+      "description": "Key used to AUTH with redis server",
+      "required": "required",
+      "recipes": [
+        "redis::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    }
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "redis::default": "Set up the Redis server"
+  },
+  "version": "0.0.1"
+}

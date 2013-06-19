@@ -1,0 +1,17 @@
+port <%= @port %>
+bind <%= @address %>
+loglevel <%= @log %>
+dir <%= @data %>
+
+daemonize no
+logfile stdout
+requirepass <%= @key %>
+databases 16
+rdbcompression yes
+dbfilename dump.rdb
+appendonly no
+appendfsync no
+activerehashing yes
+maxmemory <%= @mem %>
+maxmemory-policy volatile-ttl
+maxmemory-samples 3
