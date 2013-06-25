@@ -66,7 +66,7 @@ template "redis.conf" do
   notifies :restart, resources(:service => "redis")
   variables({
     :port => node[:redis][:port],
-    :address => node[:redis][:port],
+    :address => node[:redis][:bind],
     :log => node[:redis][:loglevel],
     :data => node[:redis][:data_dir],
     :key => node[:redis][:auth_key],
